@@ -67,6 +67,49 @@ CREATE TABLE Treinador (
     gostos VARCHAR(150)
 );
 
+CREATE TABLE Tipo (
+    idTipo INT PRIMARY KEY,
+    nome VARCHAR(40)
+);
+
+CREATE TABLE Forma (
+    idForma INT PRIMARY KEY,
+    nome VARCHAR(60)
+);
+
+CREATE TABLE Especie_pokemon (
+    idEspecie INT PRIMARY KEY,
+    nome_pokemon VARCHAR(100),
+    hp_pokemon INT,
+    ataque_base INT,
+    defesa_base INT,
+    ataque_especial INT,
+    defesa_especial INT,
+    agilidade_base INT,
+    idForma INT NULL,
+    FOREIGN KEY (idForma) REFERENCES Forma(idForma)
+);
+
+CREATE TABLE Especie_tipo (
+    idEspecie INT NOT NULL,
+    idTipo INT NOT NULL,
+    PRIMARY KEY (idEspecie, idTipo),
+    FOREIGN KEY (idEspecie) REFERENCES Especie_pokemon(idEspecie),
+    FOREIGN KEY (idTipo) REFERENCES Tipo(idTipo)
+);
+
+CREATE TABLE Pokemon_treinador (
+    idPokemon INT PRIMARY KEY,
+    apelido VARCHAR(100),
+    nivel INT,
+    local VARCHAR(20),
+    idTreinador INT NOT NULL,
+    idEspecie INT NOT NULL,
+    FOREIGN KEY (idTreinador) REFERENCES Treinador(idTreinador),
+    FOREIGN KEY (idEspecie) REFERENCES Especie_pokemon(idEspecie)
+);
+```
+
 
 ---
 
