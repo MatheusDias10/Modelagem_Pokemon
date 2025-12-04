@@ -56,7 +56,7 @@ A seguir estão as tabelas geradas no **modelo lógico**, conforme o diagrama cr
 
 ---
 
-### 🧍‍♂️ Treinador
+### Tabelas 
 
 ```sql
 CREATE TABLE Treinador (
@@ -153,3 +153,5 @@ SOURCE caminho/para/create_tables.sql;
 dados brutos → tabelas normalizadas → modelo conceitual → modelo lógico → implementação em SQL.
 
 Esse repositório serve como base didática e técnica para evolução em projetos relacionais mais complexos.
+
+### Feito por Matheus Silva Dias
